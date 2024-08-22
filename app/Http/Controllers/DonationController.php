@@ -34,7 +34,7 @@ class DonationController extends Controller
             ->first());
     }
 
-    public function storeDonation(DonationRequest $request): JsonResponse
+    public function storeDonation(DonationRequest $request)
     {
         try {
             $donation = Donation::create($request->validated());
