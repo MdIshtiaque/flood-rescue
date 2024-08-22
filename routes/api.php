@@ -43,3 +43,6 @@ Route::put('volunteer/{volunteer}', [VolunteerController::class, 'updateVoluntee
 Route::delete('volunteer/{volunteer}', [VolunteerController::class, 'deleteVolunteer']);
 
 Route::get('payment', [PaymentMethodController::class, 'getAllPaymentMethods']);
+Route::post('payment', [PaymentMethodController::class, 'storePaymentMethod']);
+Route::put('payment/{paymentMethod}', [PaymentMethodController::class, 'updatePaymentMethod']);
+Route::delete('payment/{paymentMethod}', [PaymentMethodController::class, 'deletePaymentMethod']);

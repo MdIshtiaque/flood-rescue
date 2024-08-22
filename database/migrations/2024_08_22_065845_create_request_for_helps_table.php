@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->text('request_content');
-            $table->string('location');
+            $table->string('lat');
+            $table->string('lng');
             $table->timestamps();
         });
     }

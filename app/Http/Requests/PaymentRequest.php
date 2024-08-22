@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RQHelpRequest extends FormRequest
+class PaymentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,9 @@ class RQHelpRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'phone' => 'required|string',
-            'request_content' => 'required|string',
-            'lat' => 'nullable',
-            'lng' => 'nullable',
+            'organization_id' => 'required|exists:organizations,id',
+            'payment_method' => 'required|string',
+            'payment_method_details' => 'nullable|string',
         ];
     }
 }

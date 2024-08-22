@@ -25,7 +25,8 @@ class VolunteerRequest extends FormRequest
             'name' => 'required|string',
             'phone' => 'required|string',
             'how_can_you_help' => 'required|string',
-            'location' => 'required|string',
+            'lat' => 'nullable',
+            'lng' => 'nullable',
         ];
     }
 }

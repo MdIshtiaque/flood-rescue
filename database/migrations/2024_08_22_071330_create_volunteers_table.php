@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('how_can_you_help')->nullable();
-            $table->string('location');
+            $table->string('lat');
+            $table->string('lng');
             $table->timestamps();
         });
     }

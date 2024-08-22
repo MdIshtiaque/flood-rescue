@@ -22,10 +22,10 @@ class DonationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'organization_id' => 'required',
+            'organization_id' => 'required|exists:organizations,id',
             'name' => 'required|string',
             'amount' => 'required|numeric',
-            'payment_method' => 'required|string',
+            'payment_method_id' => 'required|exists:payment_methods,id',
             'phone' => 'required|string',
             'trx_id' => 'required|string',
             'file' => 'nullable|file|mimes:pdf',

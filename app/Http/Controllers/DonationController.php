@@ -15,6 +15,7 @@ class DonationController extends Controller
                 'donations.id',
                 'donations.name as donation_name',
                 'organizations.name as organization_name',
+                'donations.amount',
             )
                 ->leftJoin('organizations', 'organizations.id', '=', 'donations.organization_id')
                 ->orderBy('id', 'desc')

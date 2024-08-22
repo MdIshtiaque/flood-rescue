@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('organization_id')->constrained('organizations')->onDelete('cascade');
             $table->string('name');
             $table->decimal('amount', 8, 2)->default(0);
-            $table->string('payment_method');
+            $table->foreignId('payment_method_id')->constrained('payment_methods')->onDelete('cascade');
             $table->string('phone');
             $table->string('trx_id');
             $table->string('file')->nullable();
