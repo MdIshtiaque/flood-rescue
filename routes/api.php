@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\IWantToHelpController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\RequestForHelpController;
@@ -29,11 +30,13 @@ Route::post('organization', [OrganizationController::class, 'storeOrganization']
 Route::get('donation', [DonationController::class, 'getAllDonation']);
 Route::post('donation', [DonationController::class, 'storeDonation']);
 Route::put('donation/{donation}', [DonationController::class, 'updateDonation']);
+Route::get('donation/{donation}', [DonationController::class, 'getDonation']);
 Route::delete('donation/{donation}', [DonationController::class, 'deleteDonation']);
 
 
 Route::get('request-for-help', [RequestForHelpController::class, 'getAllRequestForHelp']);
 Route::post('request-for-help', [RequestForHelpController::class, 'storeRequestForHelp']);
+Route::get('request-for-help/{requestForHelp}', [RequestForHelpController::class, 'changeStatus']);
 Route::put('request-for-help/{requestForHelp}', [RequestForHelpController::class, 'updateRequestForHelp']);
 Route::delete('request-for-help/{requestForHelp}', [RequestForHelpController::class, 'deleteRequestForHelp']);
 
@@ -46,3 +49,7 @@ Route::get('payment', [PaymentMethodController::class, 'getAllPaymentMethods']);
 Route::post('payment', [PaymentMethodController::class, 'storePaymentMethod']);
 Route::put('payment/{paymentMethod}', [PaymentMethodController::class, 'updatePaymentMethod']);
 Route::delete('payment/{paymentMethod}', [PaymentMethodController::class, 'deletePaymentMethod']);
+
+
+Route::get('want-help', [IWantToHelpController::class, 'getAllWantToHelp']);
+Route::post('want-help', [IWantToHelpController::class, 'storeWantToHelp']);

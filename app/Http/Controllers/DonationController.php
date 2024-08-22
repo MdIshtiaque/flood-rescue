@@ -22,9 +22,16 @@ class DonationController extends Controller
                 ->paginate(10));
     }
 
-    public function getDonationById(Donation $donation): JsonResponse
+    public function getDonation(Donation $donation): JsonResponse
     {
-        return sendSuccessResponse('success', $donation);
+        return sendSuccessResponse('success', 200, $donation->select(
+            'donations.id',
+            'donations.name as donation_name',
+            'organizations.name as organization_name',
+            'donations.amount',
+        )
+            ->leftJoin('organizations', 'organizations.id', '=', 'donations.organization_id')
+            ->first());
     }
 
     public function storeDonation(DonationRequest $request): JsonResponse

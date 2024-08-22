@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('request_for_helps', function (Blueprint $table) {
+        Schema::create('i_want_to_helps', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->text('request_content');
-            $table->string('lat');
-            $table->string('lng');
-            $table->string('status')->default(\App\Models\RequestForHelp::STATUS_UNVERIFIED);
+            $table->string('location');
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+            $table->enum('help_with', ['Boat', 'Food', 'Anything']);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('request_for_helps');
+        Schema::dropIfExists('i_want_to_helps');
     }
 };
